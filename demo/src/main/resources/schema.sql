@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS account (id INTEGER, username VARCHAR(100), user_level INTEGER, version INTEGER);

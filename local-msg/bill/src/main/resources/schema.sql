@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS bill (id INTEGER, user_id INTEGER, status INTEGER, price decimal(20, 2), version INTEGER);
