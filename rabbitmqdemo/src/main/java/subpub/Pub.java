@@ -17,7 +17,6 @@ public class Pub {
         try (Connection connection = factory.newConnection(); Channel channel = connection.createChannel()) {
 
             boolean mandatory = true;
-            channel.confirmSelect();
             setConfirmListener(channel);
             setReturnListener(channel);
 
@@ -36,7 +35,9 @@ public class Pub {
         }
     }
 
-    static void setConfirmListener(Channel channel) {
+    static void setConfirmListener(Channel channel) throws IOException {
+        channel.confirmSelect();
+
         ConfirmCallback ack = (m, t) -> {
             System.out.println("ack from server " + m + ", t=" + t);
         };
